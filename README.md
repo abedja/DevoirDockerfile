@@ -1,4 +1,4 @@
-# Inception - Single Container Stack
+# Inception
 
 Ce projet déploie une pile **LEMP** complète (Nginx, MySQL, PHP) dans un seul conteneur Docker. Il est conçu pour héberger **WordPress** et **phpMyAdmin** de manière sécurisée sous **HTTPS**.
 
