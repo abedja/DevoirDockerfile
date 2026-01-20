@@ -1,0 +1,9 @@
+.env
+.env.local
+volumes/
+*.log
+.DS_Store
+.vscode/
+.idea/
+
+www/
