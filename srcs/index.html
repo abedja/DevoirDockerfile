@@ -79,6 +79,11 @@
 
         main {
             flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
         }
 
         @media (max-width: 768px) {
@@ -93,14 +98,20 @@
 <body>
     <nav>
         <div class="navbar-brand">
-            🖥️ <span>INCEPTION</span>
+            <span>INCEPTION</span>
         </div>
         <div class="nav-buttons">
-            <a href="/phpmyadmin" class="nav-btn nav-btn-phpmyadmin">📊 phpMyAdmin</a>
-            <a href="/wp-admin" class="nav-btn nav-btn-wordpress">📝 WordPress</a>
+            <a href="/phpmyadmin" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-phpmyadmin">
+                phpMyAdmin</a>
+            <a href="/wp-admin" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-wordpress">
+                WordPress</a>
         </div>
     </nav>
-    <main></main>
+    <main>
+        <div>
+            <h1>Bienvenue sur votre stack Inception</h1>
+        </div>
+    </main>
 </body>
 
 </html>
