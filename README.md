@@ -1,31 +1,19 @@
 # Inception
 
-Ce projet déploie une pile **LEMP** complète (Nginx, MySQL, PHP) dans un seul conteneur Docker. Il est conçu pour héberger **WordPress** et **phpMyAdmin** de manière sécurisée sous **HTTPS**.
+**LEMP** complète (Nginx, MySQL, PHP) dans un seul conteneur Docker. Il est conçu pour héberger **WordPress** et **phpMyAdmin** de manière sous **HTTPS**.
 
-## Options de Lancement
-
-On a deux façons de lancer.
-
-```
-### Option A : Avec Docker CLI (Ligne de commande seule)
-
-Utile pour un contrôle manuel total. Vous devez gérer la construction et les conflits de noms vous-même.
-
-1. **Construire l'image :**
+## Lancement du Projet
+### 1. Construire l'image
 ```powershell
 docker build -t mon_image_inception .
-
 ```
 
-
-2. **Nettoyer les anciens conteneurs (si nécessaire) :**
+### 2. Nettoyer les anciens conteneurs (si nécessaire)
 ```powershell
 docker rm -f inception_server
-
 ```
 
-
-3. **Lancer le conteneur :**
+### 3. Lancer le conteneur
 ```powershell
 docker run -d `
   --name inception_server `
@@ -34,42 +22,18 @@ docker run -d `
   -v mysql_data:/var/lib/mysql `
   --env-file .env `
   mon_image_inception
-
 ```
-4. **Surveiller des Logs**
 
+### 4. Surveiller les Logs
 ```powershell
 docker logs -f inception_server
-
-```
-
----
-
-### Option B : Avec Docker Compose
-Pour gèrer automatiquement les volumes et le réseau.
-
-1. **Construire et lancer :**
-```powershell
-docker-compose up --build
-```
-
-2. **Arrêter le projet :**
-```powershell
-docker-compose down
-```
-
-3. **Surveiller des Logs**
-
-* **Si vous utilisez Docker Compose :**
-```powershell
-docker-compose logs -f
 ```
 
 ---
 
 ## Accès aux Services
 
-Une fois le serveur lancé, ouvrez votre navigateur sur :
+Une fois le serveur lancén:
 
 | Service | URL | Note |
 | --- | --- | --- |
@@ -83,12 +47,19 @@ Une fois le serveur lancé, ouvrez votre navigateur sur :
 
 ## Configuration (.env)
 
-Assurez-vous d'avoir un fichier `.env` à la racine contenant vos identifiants :
+On doit avoir un fichier `.env` à la racine contenant vos identifiants :
+```env
+MYSQL_ROOT_PASSWORD=votre_mot_de_passe_root
+MYSQL_DATABASE=wordpress
+MYSQL_USER=wp_user
+MYSQL_PASSWORD=votre_mot_de_passe
+```
+
+---
 
 ## Maintenance & Debug
 
-* **Nettoyage complet (supprime les volumes) :** `docker-compose down -v`
-* **Entrer dans le conteneur :**
-`docker exec -it inception_server bash`
-
-
+* **Arrêter le conteneur :** `docker stop inception_server`
+* **Supprimer le conteneur :** `docker rm inception_server`
+* **Nettoyage complet (supprime les volumes) :** `docker volume rm wordpress_data mysql_data`
+* **Entrer dans le conteneur :** `docker exec -it inception_server bash`
