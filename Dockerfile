@@ -51,6 +51,7 @@ RUN mkdir -p /var/www/html \
 COPY ./srcs/nginx.conf /etc/nginx/sites-available/default
 COPY ./srcs/index.html /var/www/html/index.html
 COPY ./srcs/index.php /var/www/html/index.php
+COPY ./srcs/nginx.html /var/www/html/nginx.html
 COPY ./srcs/setup.sh /srcs/setup.sh
 
 # Permissions

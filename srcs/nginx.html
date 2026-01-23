@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nginx - Inception</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand span {
+            color: #009639;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            text-decoration: none;
+            color: white;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .nav-btn-home {
+            background-color: #667eea;
+        }
+
+        .nav-btn-home:hover {
+            background-color: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-btn-phpmyadmin {
+            background-color: #f39c12;
+        }
+
+        .nav-btn-phpmyadmin:hover {
+            background-color: #d68910;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(243, 156, 18, 0.4);
+        }
+
+        .nav-btn-wordpress {
+            background-color: #21759b;
+        }
+
+        .nav-btn-wordpress:hover {
+            background-color: #1a5a7f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(33, 117, 155, 0.4);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .container h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .container p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #009639;
+        }
+
+        .info-box h3 {
+            color: #009639;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .container {
+                margin: 20px;
+            }
+
+            .container h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar-brand">
+            <span>NGINX</span>
+        </div>
+        <div class="nav-buttons">
+            <a href="/" class="nav-btn nav-btn-home">Accueil</a>
+            <a href="/phpmyadmin" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-phpmyadmin">
+                phpMyAdmin</a>
+            <a href="/wp-admin" target="_blank" rel="noopener noreferrer" class="nav-btn nav-btn-wordpress">
+                WordPress</a>
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+            <h1>🔧 Nginx</h1>
+            <p>Serveur Web haute performance</p>
+
+            <div class="info-box">
+                <h3>À propos de Nginx</h3>
+                <p>Nginx est un serveur web haute performance, réverse proxy et serveur de messagerie. Il est connu pour
+                    sa rapidité, sa stabilité et sa faible consommation de ressources.</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Configuration</h3>
+                <p>Nginx est configuré pour servir votre application, diriger les requêtes PHP vers php-fpm et
+                    gérer vos certificats SSL/TLS pour HTTPS.</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Accès à la Configuration</h3>
+                <p>Pour modifier la configuration Nginx, accédez au fichier :
+                    <strong>/etc/nginx/sites-available/default</strong></p>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
